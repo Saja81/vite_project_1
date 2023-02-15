@@ -1,26 +1,29 @@
 <script>
-export default {
-  data() {
-    return {
-      name: this.test,
-    };
-  },
+  export default {
+    data() {
+      return {
+        name: this.test
+      };
+    },
 
-  props: {
-    test: String,
-  },
-};
+    props: {
+      test: {
+        type: String,
+        default: "test"
+      }
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
-$some-color: green;
-$some-color2: blue;
-p {
-  color: $some-color;
-}
-div {
-  color: $some-color2;
-}
+  $some-color: green;
+  $some-color2: blue;
+  p {
+    color: $some-color;
+  }
+  div {
+    color: $some-color2;
+  }
 </style>
 
 <!-- function (name) { console.log(name) } -->

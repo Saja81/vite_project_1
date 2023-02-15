@@ -1,15 +1,6 @@
 <script>
-export default {
-  created() {
-    fetch("https://www.boredapi.com/api/activity")
-      .then((response) => response.json())
-      .then((data) => {
-        this.data = data;
-        console.log(data);
-      });
-  },
-  methods: {
-    fetchAgain() {
+  export default {
+    created() {
       fetch("https://www.boredapi.com/api/activity")
         .then((response) => response.json())
         .then((data) => {
@@ -17,31 +8,38 @@ export default {
           console.log(data);
         });
     },
-  },
-  data() {
-    return {
-      data: null,
-      type: "circle",
-    };
-  },
-};
+    methods: {
+      fetchAgain() {
+        fetch("https://www.boredapi.com/api/activity")
+          .then((response) => response.json())
+          .then((data) => {
+            this.data = data;
+            console.log(data);
+          });
+      }
+    },
+    data() {
+      return {
+        data: null,
+        type: "circle"
+      };
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
-p {
-  font-style: italic;
-}
-#activity {
-  color: red;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-// @import "bootstrap/scss/bootstrap";
+  p {
+    font-style: italic;
+  }
+  #activity {
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 </style>
 
 <template>
-  <button type="button" class="btn btn-warning" v-on:click="fetchAgain">
+  <button type="button" class="btn btn-primary" @:click="fetchAgain">
     Jag vet inte, ge mig ett förslag
   </button>
   <div v-if="data != null">
